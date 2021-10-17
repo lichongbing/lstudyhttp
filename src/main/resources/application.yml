@@ -1,0 +1,17 @@
+watergas:
+  baseUrl: http://www.bzsqsw.cn/CommonModule/Api/
+  token: http://www.bzsqsw.cn/CommonModule/Api/Login
+  userRename: http://www.bzsqsw.cn/CommonModule/Api/UserRename
+  loginName: bdczx
+  password: Bdczx@Data,
+ElectronicLicense:
+    sm4:
+      key: b4a089d4551cebebbde4cc792b055193
+    http:
+      baseUrl: http://172.233.0.15:8080/els/api/exchange/
+      build_url: build
+      query_url: signature/query
+      download_url: download
+      destroy_url: destroy
+      access_token: 51l9rNu09tQqLTPOlhsPXkPIVbBE1MFddJsYMkMgUxUeRWN6tc
+
