@@ -5,13 +5,17 @@ watergas:
   loginName: bdczx
   password: Bdczx@Data,
 ElectronicLicense:
+    accept: application/json
+    contentType: application/json;charset=UTF-8
     sm4:
       key: b4a089d4551cebebbde4cc792b055193
     http:
       baseUrl: http://172.233.0.15:8080/els/api/exchange/
-      build_url: build
-      query_url: signature/query
-      download_url: download
-      destroy_url: destroy
+      build_url: http://172.233.0.15:8080/els/api/exchange/build
+      query_url: http://172.233.0.15:8080/els/api/exchange/signature/query
+      download_url: http://172.233.0.15:8080/els/api/exchange/download
+      destroy_url: http://172.233.0.15:8080/els/api/exchange/destroy
       access_token: 51l9rNu09tQqLTPOlhsPXkPIVbBE1MFddJsYMkMgUxUeRWN6tc
+server:
+      port: 1234
 

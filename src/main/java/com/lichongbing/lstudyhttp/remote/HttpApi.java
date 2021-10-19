@@ -1,4 +1,4 @@
-package com.lichongbing.lstudyhttp.watergas.remote;
+package com.lichongbing.lstudyhttp.remote;
 
 /**
  * @author lichongbing
@@ -31,12 +31,13 @@ package com.lichongbing.lstudyhttp.watergas.remote;
 
 
 
-import com.lichongbing.lstudyhttp.watergas.model.Token;
-import com.lichongbing.lstudyhttp.watergas.model.UserRename;
-import com.lichongbing.lstudyhttp.watergas.remote.fallback.HttpApiFallback;
-import com.lichongbing.lstudyhttp.watergas.remote.fallback.HttpDegradeFallbackFactory;
-import com.lichongbing.lstudyhttp.watergas.result.GetTokenResult;
-import com.lichongbing.lstudyhttp.watergas.result.UserRenameResult;
+import com.lichongbing.lstudyhttp.ext.Headers;
+import com.lichongbing.lstudyhttp.model.Token;
+import com.lichongbing.lstudyhttp.model.UserRename;
+import com.lichongbing.lstudyhttp.remote.fallback.HttpApiFallback;
+import com.lichongbing.lstudyhttp.remote.fallback.HttpDegradeFallbackFactory;
+import com.lichongbing.lstudyhttp.result.GetTokenResult;
+import com.lichongbing.lstudyhttp.result.UserRenameResult;
 import com.lichongbing.retrofit.spring.boot.annotation.OkHttpClientBuilder;
 import com.lichongbing.retrofit.spring.boot.annotation.RetrofitClient;
 import com.lichongbing.retrofit.spring.boot.degrade.Degrade;
@@ -44,10 +45,8 @@ import com.lichongbing.retrofit.spring.boot.interceptor.LogStrategy;
 import com.lichongbing.retrofit.spring.boot.retry.Retry;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.*;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -70,7 +69,7 @@ import java.util.concurrent.TimeUnit;
         fallbackFactory = HttpDegradeFallbackFactory.class,
         logStrategy = LogStrategy.BODY
 )
-
+@Headers(accept = "${ElectronicLicense.accept}", contentType = "${ElectronicLicense.contentType}")
 /*默认策略情况下，每5s平均响应时间不得超过500ms，否则启用熔断降级*/
 @Degrade(count = 500)
 
@@ -103,6 +102,8 @@ public interface HttpApi {
 
     @POST
     Call<UserRenameResult> userRename(@Url String url, @Body UserRename userRename);
+    @POST
+    Call<UserRenameResult> build(@Url String url, @Body UserRename userRename);
 
 }
 

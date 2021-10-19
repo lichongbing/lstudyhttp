@@ -1,4 +1,4 @@
-package com.lichongbing.lstudyhttp.watergas.result;
+package com.lichongbing.lstudyhttp.result;
 
 /**
  * @author lichongbing

@@ -1,22 +1,17 @@
-package com.lichongbing.lstudyhttp.watergas.controller;
+package com.lichongbing.lstudyhttp.modules.watergas.controller;
 
-import com.lichongbing.lstudyhttp.watergas.constant.WatergasProperties;
-import com.lichongbing.lstudyhttp.watergas.model.Token;
-import com.lichongbing.lstudyhttp.watergas.model.UserRename;
-import com.lichongbing.lstudyhttp.watergas.remote.HttpApi;
-import com.lichongbing.lstudyhttp.watergas.result.GetTokenResult;
-import com.lichongbing.lstudyhttp.watergas.result.UserRenameResult;
+import com.lichongbing.lstudyhttp.constant.WatergasProperties;
+import com.lichongbing.lstudyhttp.model.Token;
+import com.lichongbing.lstudyhttp.model.UserRename;
+import com.lichongbing.lstudyhttp.remote.HttpApi;
+import com.lichongbing.lstudyhttp.result.GetTokenResult;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.Request;
-import okhttp3.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import java.io.IOException;
 
@@ -38,8 +33,6 @@ public class Watergascontroller {
     private HttpApi httpApi;
     @Autowired
     WatergasProperties watergasProperties;
-
-
 
     @GetMapping("/userrename")
     public String userRename() throws IOException {
@@ -76,5 +69,10 @@ public class Watergascontroller {
         GetTokenResult getTokenResult = httpApi.getToken(tokenurl, token).execute().body();
         String token1 = getTokenResult.getToken();
         return token1;
+    }
+    @GetMapping("/getElectric")
+    public String getElectric(){
+        return null;
+
     }
 }

@@ -23,35 +23,35 @@ import springfox.documentation.spring.web.plugins.Docket;
 @EnableOpenApi // 开始swagger
 @EnableKnife4j // 开启knife4j
 public class Swagger3Config {
-    @Bean
-    public Docket systemDocket() {
-        return new Docket(DocumentationType.OAS_30)
-                .groupName("系统管理")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.huaxiaozhuo.admin.modules.sys.controller"))
-                .paths(PathSelectors.any())
-                .build();
-    }
+//    @Bean
+//    public Docket systemDocket() {
+//        return new Docket(DocumentationType.OAS_30)
+//                .groupName("水气接口调用")
+//                .apiInfo(apiInfo())
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.lichongbing.lstudyhttp.modules.watergas.controller"))
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
 
     @Bean
     public Docket monitorDocket() {
         return new Docket(DocumentationType.OAS_30)
-                .groupName("系统监控")
+                .groupName("水气接口调用")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.huaxiaozhuo.admin.modules.monitor.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.lichongbing.lstudyhttp.modules.watergas.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("第三方接口管理系统swagger文档")
+                .title("接口管理系统文档")
                 .description("李崇兵swagger文档")
                 .version("1.0.0")
-                .contact(new Contact("GITEE", "https://gitee.com/lichongbing", "873610008@qq.com"))
-                .termsOfServiceUrl("https://blog.csdn.net/weixin_45481406")
+                .contact(new Contact("lichongbing", "https://gitee.com/lichongbing", "873610008@qq.com"))
+                .termsOfServiceUrl("https://blog.lichongbing.com")
                 .build();
     }
 }

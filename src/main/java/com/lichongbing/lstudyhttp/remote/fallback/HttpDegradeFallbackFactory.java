@@ -1,16 +1,15 @@
-package com.lichongbing.lstudyhttp.watergas.remote.fallback;
+package com.lichongbing.lstudyhttp.remote.fallback;
 
 
-import com.lichongbing.lstudyhttp.watergas.model.Token;
-import com.lichongbing.lstudyhttp.watergas.model.UserRename;
-import com.lichongbing.lstudyhttp.watergas.remote.HttpApi;
-import com.lichongbing.lstudyhttp.watergas.result.GetTokenResult;
-import com.lichongbing.lstudyhttp.watergas.result.UserRenameResult;
+import com.lichongbing.lstudyhttp.model.Token;
+import com.lichongbing.lstudyhttp.remote.HttpApi;
+import com.lichongbing.lstudyhttp.model.UserRename;
+import com.lichongbing.lstudyhttp.result.GetTokenResult;
+import com.lichongbing.lstudyhttp.result.UserRenameResult;
 import com.lichongbing.retrofit.spring.boot.degrade.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * @author lichongbing
@@ -34,6 +33,11 @@ public class HttpDegradeFallbackFactory implements FallbackFactory<HttpApi> {
 
             @Override
             public Call<UserRenameResult> userRename(String url, UserRename userRename) {
+                return null;
+            }
+
+            @Override
+            public Call<UserRenameResult> build(String url, UserRename userRename) {
                 return null;
             }
         };

@@ -1,6 +1,6 @@
-package com.lichongbing.lstudyhttp.watergas.config;
+package com.lichongbing.lstudyhttp.config;
 
-import com.lichongbing.lstudyhttp.watergas.constant.WatergasProperties;
+import com.lichongbing.lstudyhttp.constant.WatergasProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
